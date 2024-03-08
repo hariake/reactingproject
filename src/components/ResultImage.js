@@ -1,4 +1,3 @@
-// src/components/ResultImage.js
 import React from 'react';
 
 const ResultImage = ({ result }) => {
@@ -8,7 +7,7 @@ const ResultImage = ({ result }) => {
     } else if (result === 'You lose!') {
       return '../images/lose.png'; // Adjust the path as needed
     } else if (result === "It's a tie!") {
-      return '../images/tie.png'; // Adjust the path as needed
+      return '../images/tie.png'; 
     } else {
       return null;
     }

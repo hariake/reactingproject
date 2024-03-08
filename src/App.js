@@ -1,9 +1,10 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
-import ResultImage from './components/ResultImage'; 
-
-const choices = ['rock', 'paper', 'scissors'];
+import Choices from './components/Choices';
+import ResultText from './components/ResultText';
+import ResultImage from './components/ResultImage';
+import ComputerChoiceGenerator from './components/ComputerChoiceGenerator';
+import ResultDeterminer from './components/ResultDeterminer';
 
 const App = () => {
   const [userChoice, setUserChoice] = useState(null);
@@ -12,51 +13,27 @@ const App = () => {
 
   const handleUserChoice = (choice) => {
     setUserChoice(choice);
-    generateComputerChoice(choice);
   };
 
-  const generateComputerChoice = (userChoice) => {
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    const computerChoice = choices[randomIndex];
-    setComputerChoice(computerChoice);
-
-    // Introduce a delay before determining the winner (simulating simultaneous choices)
-    setTimeout(() => {
-      determineWinner(userChoice, computerChoice);
-    }, 500); // Adjust the delay as needed
+  const handleComputerChoice = (choice) => {
+    setComputerChoice(choice);
   };
 
-  const determineWinner = (user, computer) => {
-    if (user === computer) {
-      setResult('It\'s a tie!');
-    } else if (
-      (user === 'rock' && computer === 'scissors') ||
-      (user === 'paper' && computer === 'rock') ||
-      (user === 'scissors' && computer === 'paper')
-    ) {
-      setResult('You win!');
-    } else {
-      setResult('You lose!');
-    }
+  const handleDetermineResult = (result) => {
+    setResult(result);
   };
 
   return (
     <div className="App">
       <h1>Rock, Paper, Scissors</h1>
-      <div className="choices">
-        {choices.map((choice) => (
-          <button key={choice} onClick={() => handleUserChoice(choice)}>
-            <img src={`images/${choice}.png`} alt={choice} />
-          </button>
-        ))}
-      </div>
+      <Choices handleUserChoice={handleUserChoice} />
+      <ComputerChoiceGenerator onGenerate={handleComputerChoice} />
+      <ResultDeterminer userChoice={userChoice} computerChoice={computerChoice} onDetermine={handleDetermineResult} />
       {userChoice && computerChoice && (
-        <div className="result">
-          <p>Your choice: {userChoice}</p>
-          <p>Computer's choice: {computerChoice}</p>
-          <p>{result}</p>
+        <>
+          <ResultText userChoice={userChoice} computerChoice={computerChoice} result={result} />
           <ResultImage result={result} />
-        </div>
+        </>
       )}
     </div>
   );

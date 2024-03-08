@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import Choices from './components/Choices';
@@ -10,13 +11,21 @@ const App = () => {
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState('');
+  const [previousUserChoice, setPreviousUserChoice] = useState(null);
 
   const handleUserChoice = (choice) => {
+    console.log(`User chose: ${choice}`);
     setUserChoice(choice);
+
+    // Trigger the computer's choice generation for each user choice
+    generateComputerChoice();
   };
 
-  const handleComputerChoice = (choice) => {
-    setComputerChoice(choice);
+  const generateComputerChoice = () => {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    const newComputerChoice = choices[randomIndex];
+    setComputerChoice(newComputerChoice);
   };
 
   const handleDetermineResult = (result) => {
@@ -27,7 +36,7 @@ const App = () => {
     <div className="App">
       <h1>Rock, Paper, Scissors</h1>
       <Choices handleUserChoice={handleUserChoice} />
-      <ComputerChoiceGenerator onGenerate={handleComputerChoice} />
+      <ComputerChoiceGenerator onGenerate={generateComputerChoice} />
       <ResultDeterminer userChoice={userChoice} computerChoice={computerChoice} onDetermine={handleDetermineResult} />
       {userChoice && computerChoice && (
         <>

@@ -3,3 +3,11 @@
     justify-content: center;
     margin: 20px;
 }
+
+.choices button {
+    margin: 20px;
+} 
+
+.choices img {
+    max-width: 100px;
+} 

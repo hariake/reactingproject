@@ -1,4 +1,5 @@
 import React from 'react';
+import './ResultImage.css'
 
 const ResultImage = ({ result }) => {
   const getImageSrc = () => {

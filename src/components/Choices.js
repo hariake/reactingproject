@@ -1,4 +1,5 @@
 import React from 'react';
+import './Choices.css'
 
 const Choices = ({ handleUserChoice }) => {
   const choices = ['rock', 'paper', 'scissors'];

@@ -11,7 +11,6 @@ const App = () => {
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState('');
-  const [previousUserChoice, setPreviousUserChoice] = useState(null);
 
   const handleUserChoice = (choice) => {
     console.log(`User chose: ${choice}`);

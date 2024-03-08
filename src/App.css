@@ -6,7 +6,7 @@
 
 .choices {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 20px;
 }
 
@@ -23,7 +23,6 @@ button {
 img {
   max-width: 100px;
   max-height: 100px;
-  margin-bottom: 5px;
 }
 
 .result {

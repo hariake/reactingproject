@@ -21,18 +21,5 @@ button {
 }
 
 img {
-  max-width: 100px;
   max-height: 100px;
-}
-
-.result {
-  margin-top: 20px;
-  font-size: 18px;
-}
-.result-image {
-  margin-top: 20px;
-}
-
-.result-image img {
-  max-width: 200px;
 }

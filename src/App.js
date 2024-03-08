@@ -1,5 +1,4 @@
-// src/App.js
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 import Choices from './components/Choices';
 import ResultText from './components/ResultText';
@@ -20,12 +19,12 @@ const App = () => {
     generateComputerChoice();
   };
 
-  const generateComputerChoice = () => {
+  const generateComputerChoice = useCallback(() => {
     const choices = ['rock', 'paper', 'scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length);
     const newComputerChoice = choices[randomIndex];
     setComputerChoice(newComputerChoice);
-  };
+  }, []);
 
   const handleDetermineResult = (result) => {
     setResult(result);

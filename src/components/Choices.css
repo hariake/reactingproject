@@ -5,9 +5,12 @@
 }
 
 .choices button {
+    position: relative;
     margin: 20px;
-} 
+    padding: 0px;} 
 
 .choices img {
     max-width: 100px;
+    float: left;
+    padding: 0px;
 } 

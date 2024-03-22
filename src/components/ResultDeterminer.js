@@ -1,31 +1,28 @@
-
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const ResultDeterminer = ({ userChoice, computerChoice, onDetermine }) => {
   useEffect(() => {
-    determineWinner();
-
-   
-    return () => {
-      
+    const determineWinner = () => {
+      let result = '';
+      if (userChoice === computerChoice) {
+        result = "It's a tie!";
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result = 'You win!';
+      } else {
+        result = 'You lose!';
+      }
+      onDetermine(result);
     };
+
+    determineWinner();
+    
   }, [userChoice, computerChoice, onDetermine]);
 
-  const determineWinner = () => {
-    if (userChoice === computerChoice) {
-      onDetermine("It's a tie!");
-    } else if (
-      (userChoice === 'rock' && computerChoice === 'scissors') ||
-      (userChoice === 'paper' && computerChoice === 'rock') ||
-      (userChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-      onDetermine('You win!');
-    } else {
-      onDetermine('You lose!');
-    }
-  };
-
-  return <></>; 
+  return null;
 };
 
 export default ResultDeterminer;

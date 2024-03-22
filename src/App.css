@@ -6,3 +6,8 @@
   background: rgb(0,255,169);
   background: linear-gradient(180deg, rgba(233,0,255,0.5) 0%, rgba(0,255,169,0.5) 100%); 
 }
+
+.game-container {
+  display: flex;
+  justify-content: center;
+}

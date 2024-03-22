@@ -1,36 +1,36 @@
-.choices {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+label {
+    margin-top: 20px;
 }
 
-button {
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.play-button {
     background-color: #4e8cff; /* Blue */
     border: none;
     color: white;
     padding: 15px 30px;
     text-align: center;
     text-decoration: none;
+    display: inline-block;
     font-size: 16px;
     margin: 20px 2px;
     cursor: pointer;
     border-radius: 10px;
     transition-duration: 0.4s;
     box-shadow: 0 4px #0056b3;
-}
-
-button:hover {
+  }
+  
+  .play-button:hover {
     background-color: #2b65ec; /* Darker Blue */
     box-shadow: 0 8px #0056b3;
     transform: translateY(-2px);
-}
+  }
   
-button:active {
+  .play-button:active {
     background-color: #004ec4;
     box-shadow: 0 2px #0056b3;
     transform: translateY(2px);
-}
-
-.choices img {
-    max-width: 100px;   
-} 
+  }
